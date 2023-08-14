@@ -3,6 +3,7 @@ import unittest
 from models.review import Review
 from datetime import datetime
 
+
 class TestReview(unittest.TestCase):
     def setUp(self):
         self.review = Review()
@@ -29,7 +30,7 @@ class TestReview(unittest.TestCase):
         self.assertEqual(type(review_dict["created_at"]), str)
         self.assertEqual(type(review_dict["updated_at"]), str)
         self.assertTrue("__class__" in review_dict)
-        
+
     def test_str_method(self):
         review_str = str(self.review)
         self.assertIn("[Review]", review_str)
@@ -39,6 +40,7 @@ class TestReview(unittest.TestCase):
         self.assertIn("'place_id':", review_str)
         self.assertIn("'user_id':", review_str)
         self.assertIn("'text':", review_str)
-    
+
+
 if __name__ == '__main__':
     unittest.main()

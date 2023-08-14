@@ -38,18 +38,16 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         class_name = arg.split()[0]
-        
+
         try:
             class_module = globals()[class_name]
         except KeyError:
             print("** class doesn't exist **")
             return
-        
+
         new_instance = class_module()
         new_instance.save()
         print(new_instance.id)
-
-
 
     def do_show(self, line):
         """Show the string representation of an instance"""
@@ -57,29 +55,28 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         class_name = args[0]
-        
+
         # Get the class module
         try:
             class_module = globals()[class_name]
         except KeyError:
             print("** class doesn't exist **")
             return
-        
+
         if len(args) < 2:
             print("** instance id missing **")
             return
-        
+
         obj_id = args[1]
         obj_key = "{}.{}".format(class_name, obj_id)
-        
+
         all_objs = storage.all()
         if obj_key in all_objs:
             print(all_objs[obj_key])
         else:
             print("** no instance found **")
-
 
     def do_destroy(self, line):
         """Delete an instance based on class name and id"""
@@ -87,23 +84,23 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         class_name = args[0]
-        
+
         # Get the class module
         try:
             class_module = globals()[class_name]
         except KeyError:
             print("** class doesn't exist **")
             return
-        
+
         if len(args) < 2:
             print("** instance id missing **")
             return
-        
+
         obj_id = args[1]
         obj_key = "{}.{}".format(class_name, obj_id)
-        
+
         all_objs = storage.all()
         if obj_key in all_objs:
             del all_objs[obj_key]
@@ -117,7 +114,8 @@ class HBNBCommand(cmd.Cmd):
 
         if args:
             try:
-                filtered_objects = [str(obj) for obj in objects if type(obj).__name__ == args]
+                filtered_objects = [str(obj) for obj in objects
+                                    if type(obj).__name__ == args]
                 if not filtered_objects:
                     print("** class doesn't exist **")
                     return
@@ -132,10 +130,11 @@ class HBNBCommand(cmd.Cmd):
         """Update an instance based on the class name and id"""
         args = line.split()
         print("Args:", args)
-        
+
         # Check if the correct number of arguments is provided
         if len(args) < 4:
-            print("Usage: update <class name> <id> <attribute name> <attribute value>")
+            print("Usage: update <class name> <id>"
+                  "<attribute name> <attribute value>")
             return
 
         class_name = args[0]
@@ -154,14 +153,14 @@ class HBNBCommand(cmd.Cmd):
         # Retrieve all objects
         all_objs = storage.all()
         obj_key = "{}.{}".format(class_name, obj_id)
-        
+
         # Check if the instance exists
         if obj_key not in all_objs:
             print("** no instance found **")
             return
 
         instance = all_objs[obj_key]
-        
+
         # Check if the instance is a dictionary or an object
         if not isinstance(instance, dict):
             if not hasattr(instance, attribute_name):
@@ -179,7 +178,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             # Handle dictionary case
             instance[attribute_name] = attribute_value
-        
+
         # Save the updated instance
         instance.save()
         print("Attribute updated successfully")

@@ -3,6 +3,7 @@ import unittest
 from models.city import City
 from datetime import datetime
 
+
 class TestCity(unittest.TestCase):
     def setUp(self):
         self.city = City()
@@ -20,14 +21,14 @@ class TestCity(unittest.TestCase):
     def test_attributes_defaults(self):
         self.assertEqual(self.city.state_id, "")
         self.assertEqual(self.city.name, "")
-        
+
     def test_to_dict_method(self):
         city_dict = self.city.to_dict()
         self.assertEqual(city_dict["__class__"], "City")
         self.assertEqual(type(city_dict["created_at"]), str)
         self.assertEqual(type(city_dict["updated_at"]), str)
         self.assertTrue("__class__" in city_dict)
-        
+
     def test_str_method(self):
         city_str = str(self.city)
         self.assertIn("[City]", city_str)
@@ -36,6 +37,7 @@ class TestCity(unittest.TestCase):
         self.assertIn("'updated_at':", city_str)
         self.assertIn("'state_id':", city_str)
         self.assertIn("'name':", city_str)
-    
+
+
 if __name__ == '__main__':
     unittest.main()

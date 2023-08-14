@@ -4,7 +4,7 @@
 
 This project is an Airbnb-like clone that focuses on building a command-line interface (CLI) for managing different data models. The CLI allows you to interact with the application, create, read, update, and delete instances of various classes such as User, State, City, Amenity, Place, Review, etc.
 
-## Command Interpreter
+## Command Interpreter.
 
 The Command Interpreter is the core of the project, providing an interactive interface for managing and manipulating the data models. It supports various commands for managing instances, searching, updating, and more.
 

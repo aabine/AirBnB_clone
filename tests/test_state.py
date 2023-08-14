@@ -3,6 +3,7 @@ import unittest
 from models.state import State
 from datetime import datetime
 
+
 class TestState(unittest.TestCase):
     def setUp(self):
         self.state = State()
@@ -25,7 +26,7 @@ class TestState(unittest.TestCase):
         self.assertEqual(type(state_dict["created_at"]), str)
         self.assertEqual(type(state_dict["updated_at"]), str)
         self.assertTrue("__class__" in state_dict)
-        
+
     def test_str_method(self):
         state_str = str(self.state)
         self.assertIn("[State]", state_str)
@@ -33,6 +34,7 @@ class TestState(unittest.TestCase):
         self.assertIn("'created_at':", state_str)
         self.assertIn("'updated_at':", state_str)
         self.assertIn("'name':", state_str)
-    
+
+
 if __name__ == '__main__':
     unittest.main()

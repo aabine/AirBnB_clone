@@ -1,5 +1,7 @@
 #!/usr/bin/python3
+
 import json
+
 
 class FileStorage:
     def __init__(self):
@@ -15,7 +17,8 @@ class FileStorage:
 
     def save(self):
         with open(self.__file_path, "w") as j_file:
-            serialized_objects = {key: obj.to_dict() for key, obj in self.__objects.items()}
+            serialized_objects = {key: obj.to_dict()
+                                  for key, obj in self.__objects.items()}
             json.dump(serialized_objects, j_file)
 
     def reload(self):

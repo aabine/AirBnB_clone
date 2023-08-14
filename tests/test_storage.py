@@ -3,6 +3,7 @@ import unittest
 import json
 from models.engine.file_storage import FileStorage
 
+
 class TestFileStorage(unittest.TestCase):
     def setUp(self):
         self.storage = FileStorage()
@@ -26,6 +27,7 @@ class TestFileStorage(unittest.TestCase):
         class MockObj:
             def __init__(self, id):
                 self.id = id
+
             def to_dict(self):
                 return {"id": self.id}
         obj = MockObj("123")
@@ -41,6 +43,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.reload()
         self.assertEqual(len(self.storage.all()), 1)
         self.assertEqual(self.storage.all()["MockObj.456"].id, "456")
+
 
 if __name__ == '__main__':
     unittest.main()

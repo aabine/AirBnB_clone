@@ -3,6 +3,7 @@ import unittest
 from models.user import User
 from datetime import datetime
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User()
@@ -31,7 +32,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(type(user_dict["created_at"]), str)
         self.assertEqual(type(user_dict["updated_at"]), str)
         self.assertTrue("__class__" in user_dict)
-        
+
     def test_str_method(self):
         user_str = str(self.user)
         self.assertIn("[User]", user_str)
@@ -42,6 +43,7 @@ class TestUser(unittest.TestCase):
         self.assertIn("'password':", user_str)
         self.assertIn("'first_name':", user_str)
         self.assertIn("'last_name':", user_str)
-    
+
+
 if __name__ == '__main__':
     unittest.main()
