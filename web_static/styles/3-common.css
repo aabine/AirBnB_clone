@@ -1,0 +1,10 @@
+body{
+    margin : 0px;
+    padding : 0px;
+    font-size: 14px;
+    color: #484848;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+main{
+    height: calc(100vh - 130px);
+}

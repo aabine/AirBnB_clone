@@ -1,0 +1,14 @@
+header{
+    color: white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+}
+.logo{
+    width: 1250px;
+    height: 60px;
+    background: url(../images/logo.png);
+    margin-left: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
